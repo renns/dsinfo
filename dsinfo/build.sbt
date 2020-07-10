@@ -38,15 +38,21 @@ scalacOptions in (Compile, doc) ++=
             "https://bitbucket.org/inkytonik/dsinfo/src/default€{FILE_PATH}.scala"
     )
 
+// Scala.js
+val scalaJSVersionOpt = Option(System.getProperty("scalaJSVersion"))
+enablePlugins(scalaJSVersionOpt.map(_ => ScalaJSPlugin).toSeq: _*)
+
 // Publishing
 
-publishTo := {
-    val nexus = "https://oss.sonatype.org/"
-    if (version.value.trim.endsWith ("SNAPSHOT"))
-        Some ("snapshots" at nexus + "content/repositories/snapshots")
-    else
-        Some ("releases" at nexus + "service/local/staging/deploy/maven2")
-}
+//publishTo := {
+//    val nexus = "https://oss.sonatype.org/"
+//    if (version.value.trim.endsWith ("SNAPSHOT"))
+//        Some ("snapshots" at nexus + "content/repositories/snapshots")
+//    else
+//        Some ("releases" at nexus + "service/local/staging/deploy/maven2")
+//}
+publishTo := Some("Accur8 Repo" at "https://locus-beta.accur8.io/repos/releases")
+credentials += Credentials(Path.userHome / ".sbt" / "credentials")
 
 publishMavenStyle := true
 

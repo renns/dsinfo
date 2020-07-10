@@ -2,7 +2,7 @@ import com.typesafe.sbt.pgp.PgpKeys.{publishSigned, publishLocalSigned}
 
 // Main settings
 
-version in ThisBuild := "0.4.0"
+version in ThisBuild := "0.4.0-a8"
 
 organization in ThisBuild := "org.bitbucket.inkytonik.dsinfo"
 
